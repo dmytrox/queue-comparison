@@ -1,0 +1,26 @@
+services:
+  redis-rdb:
+    image: redis:latest
+    container_name: r-rdb
+    ports:
+      - 6377:6379
+    volumes:
+      - ./redis/rdb/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data/rrdb:/data/db
+
+  redis-aof:
+    image: redis:latest
+    container_name: r-aof
+    ports:
+      - 6378:6379
+    volumes:
+      - ./redis/aof/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data/raof:/data/db
+
+  beanstalkd:
+    image: schickling/beanstalkd
+    container_name: beanstalkd
+    ports:
+      - 11300:11300
+    volumes:
+      - ./data/bdata:/var/lib/beanstald

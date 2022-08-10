@@ -13,13 +13,12 @@ make up
 npm run sub
 
 npm run pub 
-
 ```
 
 # Tests
 
 | Queue Manager | sec |
-|-----------|------------|-----------|-----------|
+|-----------|------------|
 | beanstalkd | 334 |
 | rdb | 328 |
 | aof | 344 |
